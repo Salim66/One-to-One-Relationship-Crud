@@ -45,8 +45,16 @@ Route::get('/update', function(){
 
 });
 
-//read data
+// read data
 Route::get('/read', function(){
     $user = User::findOrFail(1);
     return $user->address->name;
+});
+
+// delete data
+Route::get('/delete', function(){
+    $user = User::findOrFail(1);
+    $user->address()->delete();
+    // address -> get one
+    // address() -> get all
 });
