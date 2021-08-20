@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Address;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| One to one relationship
+|--------------------------------------------------------------------------
+*/
+
+// insert address data
+Route::get('/insert', function(){
+    $user = User::find(1);
+
+    $address = new Address(['name' => 'Gulshan Dhaka 1216, Bangladesh']);
+
+    $user->address()->save($address);
+
 });
