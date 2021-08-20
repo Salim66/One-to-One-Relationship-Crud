@@ -35,3 +35,12 @@ Route::get('/insert', function(){
     $user->address()->save($address);
 
 });
+
+// update data
+Route::get('/update', function(){
+
+    $address = Address::whereUserId(1)->first();
+    $address->name = "Monipur 243 Dhaka";
+    $address->update();
+
+});
