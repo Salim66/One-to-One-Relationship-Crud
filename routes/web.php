@@ -44,3 +44,9 @@ Route::get('/update', function(){
     $address->update();
 
 });
+
+//read data
+Route::get('/read', function(){
+    $user = User::findOrFail(1);
+    return $user->address->name;
+});
